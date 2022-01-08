@@ -21,6 +21,7 @@
 // dom.append(span, text);
 // console.log(span);
 
+
 //wrap
 // let span = dom.create('<span>span</span>');
 // let div = dom.create('<div>div</div>');
@@ -49,7 +50,37 @@
 // console.log(dom.attr(div, 'id')); //读取div的id属性：web
 
 //text
+// let div = dom.create('<div>div</div>');
+// console.log(dom.text(div)); //div
+// dom.text(div, 'this is a div');
+// console.log(dom.text(div)); //this is a div
+
+//html
+// let div = dom.create('<div>div</div>');
+// console.log(dom.html(div));  //div
+// dom.html(div, '<span id="span">span</span>');
+// console.log(div); //<div><span id="newSpan"></span></div>
+
+//style
+// let div = dom.create('<div>div</div>');
+// dom.style(div, 'border', '1px solid red');
+// console.log(div); //<div style="border:1px solid red;">div</div>
+// console.log(dom.style(div, 'border'));  //1px solid red
+// dom.style(div, {border: '1px solid green'});
+// console.log(div); //<div style="border:1px solid green;">div</span></div>
+
+//class
+// let div = dom.create('<div>div</div>');
+// dom.class.add(div, 'header');
+// console.log(div); //<div class="header">div</div>
+// console.log(dom.class.has(div, 'header'));  //true
+// dom.class.remove(div, 'header');
+// console.log(div); //<div class>div</div>
+
+//on
 let div = dom.create('<div>div</div>');
-console.log(dom.text(div)); //div
-dom.text(div, 'this is a div');
-console.log(dom.text(div)); //this is a div
+dom.append(window.body,div);
+// function fun() { console.log(0.0) };  //定义callback
+// dom.on(div, 'click', fun);  //给div节点新增点击事件
+// dom.off(div, 'click', fun); //将div节点的点击事件移除
+

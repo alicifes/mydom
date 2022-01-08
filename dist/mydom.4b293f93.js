@@ -130,8 +130,8 @@ window.dom = {
   after: function after(node1, node2) {
     node2.parentNode.insertBefore(node1, node2); //这里是把node2插到node1的后面
   },
-  append: function append(parentNode, node) {
-    parentNode.append(node);
+  append: function append(parent, node) {
+    parent.appendChild(node);
   },
   wrap: function wrap(node, parentNode) {
     //插入一个新的父元素
@@ -191,6 +191,45 @@ window.dom = {
         return node.textContent;
       }
     }
+  },
+  html: function html(node, string) {
+    if (arguments === 2) {
+      node.innerHTML = string;
+    } else {
+      return node.innerHTML;
+    }
+  },
+  style: function style(node, name, value) {
+    if (arguments.length === 3) {
+      node.style[name] = value;
+    } else if (arguments.length === 2) {
+      if (name instanceof Object) {
+        for (var key in name) {
+          node.style[key] = name[key];
+        }
+
+        return node;
+      } else if (typeof name == 'string') {
+        return node.style[name];
+      }
+    }
+  },
+  class: {
+    add: function add(node, string) {
+      node.classList.add(string);
+    },
+    remove: function remove(node, string) {
+      node.classList.remove(string);
+    },
+    has: function has(node, string) {
+      return node.classList.contains(string); //返回true或者是false
+    }
+  },
+  on: function on(node, eventName, callback) {
+    node.addEventListener(eventName, callback);
+  },
+  off: function off(node, eventName, callback) {
+    node.removeEventLister(eventName, callback);
   }
 };
 },{}],"../../../../../.config/yarn/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -221,7 +260,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62647" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55069" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

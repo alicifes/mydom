@@ -10,8 +10,8 @@ window.dom ={
     after(node1,node2){
         node2.parentNode.insertBefore(node1,node2)//这里是把node2插到node1的后面
     },
-    append(parentNode, node){
-        parentNode.append(node)
+    append(parent,node){
+        parent.appendChild(node)
     },
     wrap(node, parentNode){ //插入一个新的父元素
         dom.before(node,parentNode)
@@ -59,8 +59,46 @@ window.dom ={
             if('innerText' in node){ //适配ie
                 return node.innerText
             }else{
-            return node.textContent
+                return node.textContent
             }
         }
-    }
+    },
+    html(node,string){
+        if(arguments ===2){
+            node.innerHTML = string
+        }else{
+            return node.innerHTML
+        }
+    },
+    style(node,name,value){
+        if(arguments.length===3){
+            node.style[name]=value
+        }else if(arguments.length===2){
+            if(name instanceof Object){
+                for(let key in name){
+                    node.style[key]= name[key]
+                } 
+                return node
+            }else if(typeof name == 'string'){
+                return node.style[name]
+            }
+        }
+    },
+    class:{
+        add(node,string){
+            node.classList.add(string)
+        },
+        remove(node,string){
+            node.classList.remove(string) 
+        },
+        has(node,string){
+            return node.classList.contains(string) //返回true或者是false
+        }
+    },
+    on(node, eventName, callback){
+        node.addEventListener(eventName,callback)
+    },
+    off(node, eventName, callback){
+        node.removeEventLister(eventName,callback)
+    },
 }
