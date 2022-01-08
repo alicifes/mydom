@@ -143,15 +143,29 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 // dom.wrap(span, div);
 // console.log(div);
 //remove
-var span = dom.create('<span>span</span>');
-var text = dom.create('<text>text</text>');
-dom.append(span, text);
-console.log(span); //<span>span<text>text</text></span>
+// let span = dom.create('<span>span</span>');
+// let text = dom.create('<text>text</text>');
+// dom.append(span, text);
+// console.log(span);  //<span>span<text>text</text></span>
+// let temp = dom.remove(text);
+// console.log(temp);  //<text>text</text>
+// console.log(span);  //<span>span</span>
+//empty
+// let div = dom.create('<div><span>span</span><text>text</text></div>');
+// console.log(div); //<div><span>span</span><text>text</text></div>
+// let temp = dom.empty(div);
+// console.log(div); //<div></div>
+// console.log(temp); //[span, text]
+//attr
+// let div = dom.create('<div>div</div>');
+// dom.attr(div, 'id', 'web'); //设置div的id属性为web
+// console.log(dom.attr(div, 'id')); //读取div的id属性：web
+//text
+var div = dom.create('<div>div</div>');
+console.log(dom.text(div)); //div
 
-var temp = dom.remove(text);
-console.log(temp); //<text>text</text>
-
-console.log(span); //<span>span</span>
+dom.text(div, 'this is a div');
+console.log(dom.text(div)); //this is a div
 },{}],"../../../../../.config/yarn/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -180,7 +194,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51818" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62647" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
