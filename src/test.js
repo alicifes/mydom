@@ -78,9 +78,48 @@
 // console.log(div); //<div class>div</div>
 
 //on
-let div = dom.create('<div>div</div>');
-dom.append(window.body,div);
+// let div = dom.create('<div>div</div>'); 
+// let body = document.querySelector('body')   //这里不能使用window.body进行内容的获取，因为获取的内容为undefined
+// dom.append(body,div);
 // function fun() { console.log(0.0) };  //定义callback
 // dom.on(div, 'click', fun);  //给div节点新增点击事件
 // dom.off(div, 'click', fun); //将div节点的点击事件移除
 
+//find
+{/* <div id="scope">
+    <div id="first">first</div>
+</div> */}
+// let scope = dom.find('#scope'); //内部调用querySelectorAll()，返回元素或元素集合
+// console.log(scope);
+// let first_scope = dom.find('#first', scope[0]);  //在指定范围scope[0]内查找
+// console.log(first_scope[0]);  //<div id="first">first</div>
+
+//parent
+// let parent = dom.parent(dom.find('#first')[0]);
+// console.log(parent);  //<div id="scope">...</div>
+
+//children
+// let children = dom.children(dom.find('#scope')[0]);
+// console.log(children);  //[div#first, div#second]
+
+//siblings
+// let siblings = dom.siblings(dom.find('#first')[0]);
+// console.log(siblings);  //[div#second, div#third]
+
+//next
+// let next = dom.next(dom.find('#first')[0]);
+// console.log(next);  //<div id="second">second</div>
+
+//previous
+// let previous = dom.previous(dom.find('#second')[0]);
+// console.log(previous);  //<div id="first">first</div>
+
+//each
+// let nodeList = dom.children(dom.find('#scope')[0])
+// dom.each(nodeList, (item) => {
+//   item.style.color = 'red';
+// });
+
+//index
+// let first = dom.find('#first')[0];
+// console.log(dom.index(first));  //0
