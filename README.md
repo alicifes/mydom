@@ -3,6 +3,8 @@
 &nbsp;&nbsp; mydom 是一个高效、精简、功能丰富的 JavaScript 工具库。它提供的 API 易于使用，这让诸如 HTML 文档遍历和操作、事件处
 理操作更加简单。可以下载 mydom.zip 解压后将 mydom.js 文件以 `<script src='./mydom.js'></script>` 的方式引入项目中。
 
+&nbsp;&nbsp;在本项目中，src目录里面提供了test.js文档，可以方便使用者测试库的功能。使用方法在引入`<script src='./mydom.js'></script>` 之后，将test.js文件以 `<script src='./test.js'></script>` 的方式引入项目中。
+
 &nbsp;&nbsp; 根据上述步骤将 mydom 引入项目中后，可以通过 dom.API 的方式对 mybox 库中封装好的方法进行调用，具体的 API 详细介绍
 如下，相信你在使用的过程中一定会觉得本库比 JavaScript 的原生 API 高效的多。具体使用可参考如下文档：
 
@@ -267,5 +269,5 @@ let first = dom.find('#first')[0];
 console.log(dom.index(first));  //0
 ```
 
-&nbsp;&nbsp; **最后**：[这是源码链接](https://github.com/yingjieweb/dombox/blob/master/src/JSDom/jsdom.js) ，该插件如有改进会
+&nbsp;&nbsp; **最后**：[这是源码链接](https://github.com/alicifes/mydom/blob/master/src/mydom.js) ，该插件如有改进会
 第一时间发布到这里，如果大家有发现错误或有性能优化的好点子可直接在相应文档进行编辑修改。欢迎提交对本仓库的改进建议~
